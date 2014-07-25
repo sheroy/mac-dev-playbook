@@ -10,4 +10,3 @@
     - name: Run Homebrew install script
       shell: ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" creates=/usr/local/bin/brew
       register: brew_result
-      sudo: yes

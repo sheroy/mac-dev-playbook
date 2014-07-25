@@ -12,7 +12,7 @@ This is a work in progress, and is mostly a means for me to document my current 
 
   1. Clone this repository somewhere on your local drive.
   2. [Install Ansible](https://devopsu.com/guides/ansible-mac-osx.html).
-  3. Run `ansible-playbook main.yml --ask-sudo-pass`.
+  3. Run `ansible-playbook main.yml -i localhost, --ask-sudo-pass`.
 
 ## Included Applications / Configuration
 
