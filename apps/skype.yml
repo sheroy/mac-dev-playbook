@@ -1,6 +1,8 @@
 ---
 - hosts: all
   connection: local
+  gather_facts: False
+
   vars:
     app_name: Skype
     app_name_pretty: Skype
@@ -12,4 +14,4 @@
     creates: /Applications/Skype.app
 
   tasks:
-   - include: ../install/{{ install_method }}.yml
+   - include: ../install/{{install_method}}.yml

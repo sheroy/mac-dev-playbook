@@ -1,0 +1,29 @@
+---
+- name: Set dock orientation
+  shell: defaults write com.apple.dock orientation -string "{{dock.orientation}}"
+  when: dock is defined
+  register: dock_changed
+
+- name: Set application launch animation
+  shell: defaults write com.apple.dock launchanim -integer {{dock.launchanim}}
+  when: dock is defined
+  register: dock_changed
+
+- name: Set dock tile size
+  shell: defaults write com.apple.dock tilesize -integer {{dock.tilesize}}
+  when: dock is defined
+  register: dock_changed
+
+- name: Set dock autohide option
+  shell: defaults write com.apple.dock autohide -integer {{dock.autohide}}
+  when: dock is defined
+  register: dock_changed
+
+- name: Set dock mod-count option
+  shell: defaults write com.apple.dock mod-count -integer {{dock.mod_count}}
+  when: dock is defined
+  register: dock_changed
+
+- name: Restart Dock
+  shell: killall Dock
+  when: dock_changed
