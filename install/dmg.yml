@@ -1,9 +1,11 @@
 ---
 - name: Download {{ app_name_pretty }}
   get_url: url={{ app_url }} dest={{ downloads }}/{{ app_name }}.dmg
+  sudo: no
 
 - name: Mount {{ app_name_pretty }} image
   command: hdiutil attach {{ app_name }}.dmg chdir={{ downloads }} creates={{ creates }}
+  sudo: no
 
 - name: Cleanup before installation
   command: rm -rf /Applications/{{ app_name }}.app
@@ -21,7 +23,9 @@
   shell: "[ -d {{ mount_path }} ] && echo '1' || echo '0'"
   changed_when: false
   register: mount_exists
+  sudo: no
 
 - name: Unmount {{ app_name_pretty }} image
   command: hdiutil detach {{ mount_path }}
   when: "mount_exists.stdout == '1'"
+  sudo: no

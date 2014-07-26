@@ -1,10 +1,13 @@
 ---
 - hosts: all
   connection: local
+  gather_facts: False
+  sudo: True
+
   vars:
     app_name: VirtualBox
     app_name_pretty: VirtualBox
-    app_url: "http://download.virtualbox.org/virtualbox/4.3.6/VirtualBox-4.3.6-91406-OSX.dmg"
+    app_url: "http://download.virtualbox.org/virtualbox/4.3.14/VirtualBox-4.3.14-95030-OSX.dmg"
     mount_path: /Volumes/VirtualBox/
     installer_type: pkg
     install_method: dmg
@@ -13,4 +16,4 @@
     creates: /Applications/VirtualBox.app
 
   tasks:
-    - include: ../install/{{ install_method }}.yml
+    - include: ../install/{{install_method}}.yml

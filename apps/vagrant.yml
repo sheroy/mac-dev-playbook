@@ -1,10 +1,13 @@
 ---
 - hosts: all
   connection: local
+  gather_facts: False
+  sudo: True
+
   vars:
     app_name: Vagrant
     app_name_pretty: Vagrant
-    app_url: "https://dl.bintray.com/mitchellh/vagrant/Vagrant-1.4.3.dmg"
+    app_url: "https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3.dmg"
     installer_type: pkg
     install_method: dmg
     install_target: /Volumes/Macintosh\ HD
@@ -13,4 +16,4 @@
     creates: /Applications/Vagrant/bin/vagrant
 
   tasks:
-    - include: ../install/{{ install_method }}.yml
+    - include: ../install/{{install_method}}.yml
