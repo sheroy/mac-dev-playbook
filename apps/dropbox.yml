@@ -3,6 +3,7 @@
 # TODO: Maybe still use normal DMG routine for the install instead of sh?
 - hosts: all
   connection: local
+  gather_facts: False
 
   tasks:
   - name: Install Dropbox.
