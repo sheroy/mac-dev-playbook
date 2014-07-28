@@ -1,34 +1,28 @@
 ---
 - name: Mac Development Playbook
-  hosts: self
-  user: jgeerling
+  hosts: localhost
   connection: local
+  gather_facts: False
 
   vars:
     - downloads: ~/.ansible-downloads/
 
   tasks:
     - name: Create Ansible downloads directory
-      file: path={{ downloads }} state=directory
+      file: path={{downloads}} state=directory
+    - include: preferences/softwareupdate.yml
     - include: preferences/dotfiles.yml
     - include: preferences/preferences.yml
 
 - include: apps/adium.yml
-- include: apps/chrome.yml
-- include: apps/cornerstone.yml
 - include: apps/dropbox.yml
 - include: apps/firefox.yml
-- include: apps/handbrake.yml
+- include: apps/flash_player.yml
+- include: apps/java7.yml
 - include: apps/homebrew.yml
-- include: apps/knock.yml
-# - include: apps/menumeters.yml
-- include: apps/nvalt.yml
-- include: apps/pckeyboardhack.yml
-- include: apps/sequel-pro.yml
 - include: apps/skype.yml
-- include: apps/sublime.yml
-- include: apps/tower.yml
-- include: apps/transmit.yml
+- include: apps/sublime2.yml
+- include: apps/tresorit.yml
 - include: apps/vagrant.yml
 - include: apps/virtualbox.yml
 - include: apps/vlc.yml

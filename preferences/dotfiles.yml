@@ -1,29 +1,14 @@
 ---
-# Install Jeff Geerling's dotfiles.
+# Install Ilja Bobkevic's dotfiles.
 - name: Clone dotfiles repository into temporary location.
   git: >
-    repo=https://github.com/geerlingguy/dotfiles.git
-    dest=~/Dropbox/Development/GitHub/dotfiles
+    repo=https://github.com/i11/dotfiles.git
+    dest=/tmp/dotfiles
   sudo: no
 
-- name: Check if .bash_profile is a link.
-  shell: ls -F ~/.bash_profile
-  register: is_link
-  changed_when: false
-
-- name: Remove current .bash_profile file if necessary.
-  file: path=~/.bash_profile state=absent
-  when: "'@' not in is_link.stdout"
-
-- name: Link dotfiles into home folder.
-  file: src=~/Dropbox/Development/GitHub/dotfiles/{{ item }} dest=~/{{ item }} state=link
-  sudo: no
-  with_items:
-  - .bash_profile
-  - .gitignore
-  - .inputrc
-  - .osx
-  - .vimrc
+- name: Bootstrap the dotfiles
+  shell: set -- -f; source bootstrap.sh chdir=/tmp/dotfiles
 
 - name: Run .osx dotfiles.
-  shell: date
+  shell: ./.osx chdir=~/
+  sudo: yes
