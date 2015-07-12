@@ -1,14 +1,14 @@
 ---
-# Install Ilja Bobkevic's dotfiles.
+# Install Sheroy Marker's dotfiles.
 - name: Clone dotfiles repository into temporary location.
   git: >
-    repo=https://github.com/i11/dotfiles.git
+    repo=https://github.com/sheroy/dotfiles.git
     dest=/tmp/dotfiles
   sudo: no
 
 - name: Bootstrap the dotfiles
   shell: set -- -f; source bootstrap.sh chdir=/tmp/dotfiles
 
-- name: Run .osx dotfiles.
-  shell: ./.osx chdir=~/
-  sudo: yes
+#- name: Run .osx dotfiles.
+#  shell: ./.osx chdir=~/
+#  sudo: yes

@@ -1,0 +1,15 @@
+---
+- hosts: all
+  connection: local
+  vars:
+    app_name: Emacs
+    app_name_pretty: Emacs
+    app_url: "http://emacsformacosx.com/emacs-builds/Emacs-24.5-1-universal.dmg"
+    installer_type: app
+    install_method: dmg
+    mount_path: /Volumes/Emacs/
+    creates: /Applications/Emacs.app
+    downloads: ~/.ansible-downloads/
+
+  tasks:
+    - include: ../install/{{ install_method }}.yml
