@@ -15,14 +15,15 @@
     - include: preferences/preferences.yml
     - include: preferences/dotfiles.yml
 
+- include: apps/systemutilities.yml
 - include: apps/emacs.yml
 - include: apps/chrome.yml
 - include: apps/virtualbox.yml
 - include: apps/vagrant.yml
+- include: apps/java8.yml
 #- include: apps/dropbox.yml
 #- include: apps/firefox.yml
 #- include: apps/flash_player.yml
-#- include: apps/java7.yml
 #- include: apps/homebrew.yml
 #- include: apps/skype.yml
  

@@ -1,0 +1,7 @@
+- name: Installs system utilities
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  
+  tasks:
+    - command: brew install wget

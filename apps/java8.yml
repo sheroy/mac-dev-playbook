@@ -1,0 +1,19 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: False
+  sudo: True
+  vars:
+    app_name: JDK\ 8\ Update\ 45
+    app_name_pretty: JDK 8 Update 45 
+    app_url: "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-macosx-x64.dmg"
+    uri_headers: 'HEADER_Cookie="oraclelicense=accept-securebackup-cookie"'
+    installer_type: pkg
+    install_method: dmg
+    install_target: /Volumes/ThoughtWorksHD
+    mount_path: /Volumes/{{app_name}}/
+    downloads: ~/.ansible-downloads/
+    creates: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk
+
+  tasks:
+   - include: ../install/{{install_method}}.yml
