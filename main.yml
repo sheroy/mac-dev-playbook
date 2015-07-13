@@ -17,13 +17,12 @@
 
 - include: apps/emacs.yml
 - include: apps/chrome.yml
+- include: apps/virtualbox.yml
+- include: apps/vagrant.yml
 #- include: apps/dropbox.yml
 #- include: apps/firefox.yml
 #- include: apps/flash_player.yml
 #- include: apps/java7.yml
 #- include: apps/homebrew.yml
 #- include: apps/skype.yml
-#- include: apps/tresorit.yml
-#- include: apps/vagrant.yml
-#- include: apps/virtualbox.yml
  

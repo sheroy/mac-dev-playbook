@@ -7,11 +7,11 @@
   vars:
     app_name: VirtualBox
     app_name_pretty: VirtualBox
-    app_url: "http://download.virtualbox.org/virtualbox/4.3.14/VirtualBox-4.3.14-95030-OSX.dmg"
+    app_url: "http://download.virtualbox.org/virtualbox/5.0.0/VirtualBox-5.0.0-101573-OSX.dmg"
     mount_path: /Volumes/VirtualBox/
     installer_type: pkg
     install_method: dmg
-    install_target: /Volumes/Macintosh\ HD
+    install_target: /Volumes/ThoughtWorksHD
     downloads: ~/.ansible-downloads/
     creates: /Applications/VirtualBox.app
 
